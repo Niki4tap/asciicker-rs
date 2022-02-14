@@ -1,6 +1,6 @@
 [package]
 name = "asciicker-rs"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Niki4tap <rombiklol2@gmail.com>"]
 edition = "2021"
 description = """

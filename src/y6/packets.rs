@@ -591,7 +591,7 @@ impl From<RawJoinRequest> for JoinRequest {
     fn from(value: RawJoinRequest) -> Self {
         let cstr = value.name.to_vec();
         Self {
-            name: unsafe { CString::from_vec_unchecked(cstr) },
+            name: unsafe { CString::from_vec_unchecked(cstr[0..first_nul(&cstr).unwrap_or(32)].to_vec()) },
         }
     }
 }
@@ -610,7 +610,7 @@ impl From<RawJoinBroadcast> for JoinBroadcast {
         Self {
             player_pose: value.player_pose,
             id: value.id,
-            name: unsafe { CString::from_vec_unchecked(value.name.to_vec()) },
+            name: unsafe { CString::from_vec_unchecked(value.name[0..first_nul(&value.name).unwrap_or(32)].to_vec()) },
         }
     }
 }
