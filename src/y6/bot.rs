@@ -592,6 +592,7 @@ async fn default_pose(
     Ok(())
 }
 
+#[doc(hidden)]
 #[apply(callback!)]
 async fn default_talk(
     _: TalkBroadcast,
